@@ -3,7 +3,7 @@ import pytest
 from microkeras import Sequential
 from microkeras.layers import Dense
 
-def test_sequential_layers_initialization():
+def test_sequential_add_build_layers():
     print()
     print("Sequential layers initialization test:")
 
