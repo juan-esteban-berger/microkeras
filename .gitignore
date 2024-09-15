@@ -1,2 +1,8 @@
 # Ignore all __pycache__ directories
 **/__pycache__/
+**/*.pyc
+**/.pytest_cache
+
+# contextclipper files
+.contextclipperignore
+contextoutput.txt
