@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
-from microkeras.calculate_A import calculate_A
-from microkeras.sigmoid import sigmoid
+from microkeras.operations.forward import calculate_A
+from microkeras.activations import sigmoid
 
 def test_calculate_A_sigmoid():
     print()

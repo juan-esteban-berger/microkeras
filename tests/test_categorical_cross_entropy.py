@@ -1,6 +1,7 @@
 import pytest
 import numpy as np
-from microkeras.categorical_crossentropy import categorical_crossentropy
+from microkeras.losses import categorical_crossentropy
+
 
 def test_categorical_crossentropy():
     print()

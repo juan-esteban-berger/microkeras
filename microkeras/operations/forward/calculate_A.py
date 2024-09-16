@@ -1,5 +1,4 @@
-from .sigmoid import sigmoid
-from .softmax import softmax
+from ...activations import sigmoid, softmax
 
 def calculate_A(Z, activation):
     if activation == 'sigmoid':

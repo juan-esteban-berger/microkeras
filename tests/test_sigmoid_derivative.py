@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-from microkeras.sigmoid_derivative import sigmoid_derivative
+from microkeras.activations import sigmoid_derivative
 
 def test_sigmoid_derivative():
     print()

@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-from microkeras.calculate_Z import calculate_Z
+from microkeras.operations.forward import calculate_Z
 
 def test_calculate_Z():
     print()

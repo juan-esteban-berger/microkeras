@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-from microkeras.sigmoid import sigmoid
+from microkeras.activations import sigmoid
 
 def test_sigmoid():
     print()

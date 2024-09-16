@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-from microkeras.softmax import softmax
+from microkeras.activations import softmax
 
 def test_softmax():
     print()

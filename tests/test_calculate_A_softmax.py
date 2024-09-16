@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
-from microkeras.calculate_A import calculate_A
-from microkeras.softmax import softmax
+from microkeras.operations.forward import calculate_A
+from microkeras.activations import softmax
 
 def test_calculate_A_softmax():
     print()
