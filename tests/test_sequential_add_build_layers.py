@@ -61,6 +61,3 @@ def test_sequential_add_build_layers():
 
     print("\nAll layer properties are correct.")
     print("Sequential layers initialization test passed!")
-
-if __name__ == "__main__":
-    pytest.main([__file__])
