@@ -12,7 +12,6 @@ def test_sequential_copy():
         Dense(4, activation='sigmoid', input_shape=(3,)),
         Dense(2, activation='softmax')
     ])
-    model.build()
     
     # Create a copy of the model
     model_copy = model.copy()
