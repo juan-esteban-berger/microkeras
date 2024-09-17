@@ -31,6 +31,7 @@ def test_sgd_select_batches():
     assert Y_batch.shape == (2, batch_size), f"Expected Y_batch shape (2, {batch_size}), but got {Y_batch.shape}"
 
     # Check that selected indices are unique and correspond for both X and Y
+    selected_indices = []
     for i in range(batch_size):
         x_col = X_batch[:, i]
         y_col = Y_batch[:, i]
@@ -39,6 +40,26 @@ def test_sgd_select_batches():
                                     (Y_train == y_col.reshape(-1, 1)).all(axis=0))[0]
         
         assert len(matching_indices) == 1, f"Column {i} in batch not found exactly once in original data"
+        selected_indices.append(matching_indices[0])
+
+    # Check if the values in X_batch and Y_batch are correct
+    expected_X_batch = X_train[:, selected_indices]
+    expected_Y_batch = Y_train[:, selected_indices]
+
+    print("\nExpected X_batch:")
+    print(expected_X_batch)
+    print("\nActual X_batch:")
+    print(X_batch)
+    
+    print("\nExpected Y_batch:")
+    print(expected_Y_batch)
+    print("\nActual Y_batch:")
+    print(Y_batch)
+
+    np.testing.assert_allclose(X_batch, expected_X_batch, rtol=1e-7, atol=1e-7, 
+                               err_msg="X_batch values do not match expected values")
+    np.testing.assert_allclose(Y_batch, expected_Y_batch, rtol=1e-7, atol=1e-7, 
+                               err_msg="Y_batch values do not match expected values")
 
     # Test with different batch sizes
     for test_batch_size in [1, 2, 4, 5]:
