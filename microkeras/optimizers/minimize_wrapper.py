@@ -20,4 +20,3 @@ def minimize_wrapper(optimizer, model, X_train, Y_train, loss, batch_size, epoch
         history['loss'].append(loss_value)
     
     return history
-
