@@ -8,6 +8,7 @@ from microkeras.optimizers import SGD
 from microkeras.operations.metrics.get_accuracy import get_accuracy
 from microkeras.datasets import mnist
 from microkeras.optimizers.minimize import minimize
+from microkeras.operations.forward.forward import forward
 
 def test_sgd_minimize():
     print()
@@ -28,15 +29,15 @@ def test_sgd_minimize():
     
     # Create a simple neural network
     model = Sequential([
-        Dense(128, activation='sigmoid', input_shape=(784,)),
+        Dense(200, activation='sigmoid', input_shape=(784,)),
+        Dense(200, activation='sigmoid'),
         Dense(10, activation='softmax')
     ])
     
     # Set hyperparameters
     learning_rate = 0.1
     loss = 'categorical_crossentropy'
-    num_iterations = 10_000  # Increased for better training
-    batch_size = 32
+    batch_size = 8
     
     # Create SGD optimizer
     optimizer = SGD(learning_rate=learning_rate)
@@ -45,8 +46,7 @@ def test_sgd_minimize():
     initial_acc = get_accuracy(model, X_train, Y_train)
     print(f"Initial accuracy: {initial_acc:.4f}")
     
-    # Perform minimize
-    minimize(optimizer, model, X_train, Y_train, loss, num_iterations, batch_size)
+    minimize(optimizer, model, X_train, Y_train, loss, batch_size)
     
     # Calculate final accuracy
     final_acc = get_accuracy(model, X_train, Y_train)
