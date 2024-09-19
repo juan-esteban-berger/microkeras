@@ -5,6 +5,7 @@ from .copy import copy
 from .compile import compile
 from .fit import fit
 from .evaluate import evaluate
+from .predict import predict
 
 class Sequential:
     def __init__(self, layers):
@@ -16,3 +17,4 @@ class Sequential:
     compile = compile
     fit = fit
     evaluate = evaluate
+    predict = predict
