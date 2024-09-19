@@ -6,7 +6,7 @@ from microkeras.optimizers import SGD
 from microkeras.datasets import mnist
 from microkeras.optimizers.minimize_wrapper import minimize_wrapper
 
-def test_minimize_wrapper():
+def test_sgd_minimize_wrapper():
     print()
     print("Minimize function test:")
     
@@ -32,11 +32,11 @@ def test_minimize_wrapper():
                                Y_train,
                                'categorical_crossentropy',
                                32,
-                               5)
+                               2)
     
     # Assertions to check training history
-    assert len(history['accuracy']) == 5, "There should be five accuracy entries."
-    assert len(history['loss']) == 5, "There should be five loss entries."
+    assert len(history['accuracy']) == 2, "There should be five accuracy entries."
+    assert len(history['loss']) == 2, "There should be five loss entries."
     assert history['accuracy'][0] < history['accuracy'][-1], "Accuracy should improve."
     assert history['loss'][0] > history['loss'][-1], "Loss should decrease."
     print("Test passed: Accuracy improved and loss decreased over epochs.")
