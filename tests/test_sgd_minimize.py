@@ -42,20 +42,37 @@ def test_sgd_minimize():
     # Create SGD optimizer
     optimizer = SGD(learning_rate=learning_rate)
     
-    # Calculate initial accuracy
+    # Test with accuracy metric
+    print("\nTesting minimize with accuracy metric:")
     initial_acc = get_accuracy(model, X_train, Y_train)
     print(f"Initial accuracy: {initial_acc:.4f}")
     
-    minimize(optimizer, model, X_train, Y_train, loss, batch_size)
+    minimize(optimizer, model, X_train, Y_train, loss, batch_size, metrics=['accuracy'])
     
-    # Calculate final accuracy
     final_acc = get_accuracy(model, X_train, Y_train)
-    print(f"\nFinal accuracy: {final_acc:.4f}")
+    print(f"Final accuracy: {final_acc:.4f}")
     
-    # Assert that accuracy improved
-    assert final_acc > initial_acc, "Model accuracy did not improve"
+    assert final_acc > initial_acc, "Model accuracy did not improve with accuracy metric"
+    assert final_acc > 0.6, f"Final accuracy {final_acc:.4f} is below 60% with accuracy metric"
     
-    # Assert that final accuracy is above 60%
-    assert final_acc > 0.6, f"Final accuracy {final_acc:.4f} is below 60%"
+    # Reset model
+    model = Sequential([
+        Dense(200, activation='sigmoid', input_shape=(784,)),
+        Dense(200, activation='sigmoid'),
+        Dense(10, activation='softmax')
+    ])
+    
+    # Test with empty metrics list
+    print("\nTesting minimize with empty metrics list:")
+    initial_acc = get_accuracy(model, X_train, Y_train)
+    print(f"Initial accuracy: {initial_acc:.4f}")
+    
+    minimize(optimizer, model, X_train, Y_train, loss, batch_size, metrics=[])
+    
+    final_acc = get_accuracy(model, X_train, Y_train)
+    print(f"Final accuracy: {final_acc:.4f}")
+    
+    assert final_acc > initial_acc, "Model accuracy did not improve with empty metrics list"
+    assert final_acc > 0.6, f"Final accuracy {final_acc:.4f} is below 60% with empty metrics list"
     
     print("\nMinimize function test passed!")

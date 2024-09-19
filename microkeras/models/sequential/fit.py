@@ -2,7 +2,7 @@ from microkeras.optimizers.minimize_wrapper import minimize_wrapper
 import numpy as np
 
 def fit(self, X_train, y_train, batch_size=32, epochs=1):
-    if not hasattr(self, 'optimizer') or not hasattr(self, 'loss'):
+    if not hasattr(self, 'optimizer') or not hasattr(self, 'loss') or not hasattr(self, 'metrics'):
         raise ValueError("Model must be compiled before training. Use model.compile() first.")
 
     X_train = X_train.T
@@ -14,6 +14,7 @@ def fit(self, X_train, y_train, batch_size=32, epochs=1):
                                y_train,
                                self.loss,
                                batch_size,
-                               epochs)
+                               epochs,
+                               self.metrics)
 
     return history
