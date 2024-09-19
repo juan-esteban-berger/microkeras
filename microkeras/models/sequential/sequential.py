@@ -1,9 +1,10 @@
 from .initialize import initialize
 from .add import add
 from .build import build
-from. copy import copy
+from .copy import copy
 from .compile import compile
 from .fit import fit
+from .evaluate import evaluate
 
 class Sequential:
     def __init__(self, layers):
@@ -14,3 +15,4 @@ class Sequential:
     copy = copy
     compile = compile
     fit = fit
+    evaluate = evaluate
