@@ -1,63 +1,63 @@
-import numpy as np
 import pytest
-from microkeras import Sequential
+import numpy as np
+import os
+from microkeras.models import Sequential
 from microkeras.layers import Dense
+from microkeras.optimizers import SGD
+from microkeras.datasets import mnist
 
-def test_sequential_add_build_layers():
-    print()
-    print("Sequential layers initialization test:")
+def test_sequential_save_load():
+    print("\nSequential save and load function test:")
+    
+    # Get the directory of the current file and set up model path
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.join(current_dir, 'test_models', 'test_model.json')
+    os.makedirs(os.path.dirname(model_path), exist_ok=True)
 
-    # Expected values
-    expected_units = [200, 200, 10]
-    expected_activations = ['sigmoid', 'sigmoid', 'softmax']
-    expected_input_shapes = [784, 200, 200]
+    # Load and preprocess MNIST data
+    (X_train, y_train), (X_test, y_test) = mnist.load_data()
+    X_train = X_train.reshape(X_train.shape[0], -1)
+    X_test = X_test.reshape(X_test.shape[0], -1)
+    y_train = np.eye(10)[y_train]
+    y_test = np.eye(10)[y_test]
 
-    print("\nExpected model structure:")
-    for i in range(3):
-        print(f"Layer {i}: Dense(units={expected_units[i]}, activation='{expected_activations[i]}', input_shape={expected_input_shapes[i]})")
-
-    print("\nInitializing layers...")
+    # Setup and train model
     model = Sequential([
         Dense(200, activation='sigmoid', input_shape=(784,)),
         Dense(200, activation='sigmoid'),
         Dense(10, activation='softmax')
     ])
+    optimizer = SGD(learning_rate=0.1)
+    model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+    model.fit(X_train,
+              y_train,
+              batch_size=32,
+              epochs=2)
 
-    print("\nActual model structure:")
-    for i, layer in enumerate(model.layers):
-        print(f"Layer {i}: Dense(units={layer.units}, activation='{layer.activation}', input_shape={layer.input_shape})")
-        print(f"  Weight shape: {layer.W.shape}")
-        print(f"  Bias shape: {layer.b.shape}")
+    # Evaluate original model
+    _, original_accuracy = model.evaluate(X_test, y_test)
+    print(f"Original model accuracy: {original_accuracy:.4f}")
 
-    print("\nTesting layer properties:")
-    for i, layer in enumerate(model.layers):
-        print(f"\nLayer {i}:")
-        print(f"  Expected input shape: {expected_input_shapes[i]}, Actual: {layer.input_shape}")
-        print(f"  Expected output shape (units): {expected_units[i]}, Actual: {layer.units}")
-        print(f"  Expected activation: {expected_activations[i]}, Actual: {layer.activation}")
-        print(f"  Weight shape: {layer.W.shape}")
-        print(f"  Bias shape: {layer.b.shape}")
+    # Save the model
+    model.save(model_path)
 
-        # Test input shapes
-        np.testing.assert_equal(layer.input_shape, expected_input_shapes[i])
+    # Load the model
+    loaded_model = model.load(model_path)
 
-        # Test output shapes (units)
-        np.testing.assert_equal(layer.units, expected_units[i])
+    # Compare weights and biases
+    for original_layer, loaded_layer in zip(model.layers, loaded_model.layers):
+        assert np.allclose(original_layer.W, loaded_layer.W), "Weights do not match"
+        assert np.allclose(original_layer.b, loaded_layer.b), "Biases do not match"
 
-        # Test activations
-        np.testing.assert_equal(layer.activation, expected_activations[i])
+    # Evaluate loaded model
+    loaded_model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+    _, loaded_accuracy = loaded_model.evaluate(X_test, y_test)
+    print(f"Loaded model accuracy: {loaded_accuracy:.4f}")
 
-        # Test weight and bias initializations
-        np.testing.assert_equal(layer.W.shape, (layer.units, layer.input_shape))
-        np.testing.assert_equal(layer.b.shape, (layer.units, 1))
+    # Assert that loaded model achieves reasonable accuracy
+    assert loaded_accuracy > 0.8, f"Loaded model accuracy ({loaded_accuracy:.4f}) is below 80%"
 
-        # Check if W and b contain random values
-        print(f"  Weights randomly initialized: {not np.allclose(layer.W, np.zeros_like(layer.W))}")
-        print(f"  Biases randomly initialized: {not np.allclose(layer.b, np.zeros_like(layer.b))}")
+    print("Sequential save and load function test passed!")
 
-        # Check if W and b are in the correct range (-0.5 to 0.5)
-        print(f"  Weights in range [-0.5, 0.5]: {np.all(layer.W >= -0.5) and np.all(layer.W <= 0.5)}")
-        print(f"  Biases in range [-0.5, 0.5]: {np.all(layer.b >= -0.5) and np.all(layer.b <= 0.5)}")
-
-    print("\nAll layer properties are correct.")
-    print("Sequential layers initialization test passed!")
+    # Clean up
+    os.remove(model_path)
