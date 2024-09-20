@@ -6,6 +6,8 @@ from .compile import compile
 from .fit import fit
 from .evaluate import evaluate
 from .predict import predict
+from .save import save
+from .load import load
 
 class Sequential:
     def __init__(self, layers):
@@ -18,3 +20,8 @@ class Sequential:
     fit = fit
     evaluate = evaluate
     predict = predict
+    save = save
+
+    @classmethod
+    def load(cls, filename):
+        return load(cls, filename)
