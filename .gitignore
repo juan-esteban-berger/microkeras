@@ -3,6 +3,9 @@
 **/*.pyc
 **/.pytest_cache
 
+# Ignore all .egg-info directories
+*.egg-info/
+
 # contextclipper files
 .contextclipperignore
 contextoutput.txt
