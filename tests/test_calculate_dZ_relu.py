@@ -1,11 +1,11 @@
 import pytest
 import numpy as np
 from microkeras.operations.backward.calculate_dZ import calculate_dZ
-from microkeras.activations import sigmoid_derivative
+from microkeras.activations import relu_derivative
 
-def test_calculate_dZ():
+def test_calculate_dZ_relu():
     print()
-    print("Calculate dZ function test:")
+    print("Calculate dZ function test (ReLU):")
     
     # Test parameters
     W_next = np.array([[0.1, 0.2],
@@ -14,9 +14,9 @@ def test_calculate_dZ():
     dZ_next = np.array([[0.1],
                         [0.2],
                         [0.3]])
-    Z = np.array([[0.5],
+    Z = np.array([[-0.5],
                   [0.6]])
-    activation = 'sigmoid'
+    activation = 'relu'
     
     print("Input parameters:")
     print("W_next:")
@@ -28,7 +28,7 @@ def test_calculate_dZ():
     print(f"Activation: {activation}")
     
     # Calculate expected output manually
-    expected_output = np.dot(W_next.T, dZ_next) * sigmoid_derivative(Z)
+    expected_output = np.dot(W_next.T, dZ_next) * relu_derivative(Z)
     print("\nExpected output (manual calculation):")
     print(expected_output)
     
@@ -40,4 +40,4 @@ def test_calculate_dZ():
     # Assert that the result matches the expected output
     np.testing.assert_allclose(result, expected_output, rtol=1e-7, atol=1e-7)
     
-    print("\nCalculate dZ function test passed!")
+    print("\nCalculate dZ function test (ReLU) passed!")
