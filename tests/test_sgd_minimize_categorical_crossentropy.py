@@ -10,7 +10,7 @@ from microkeras.datasets import mnist
 from microkeras.optimizers.minimize import minimize
 from microkeras.operations.forward.forward import forward
 
-def test_sgd_minimize():
+def test_sgd_minimize_categorical_crossentropy():
     print()
     print("Minimize function test:")
     
