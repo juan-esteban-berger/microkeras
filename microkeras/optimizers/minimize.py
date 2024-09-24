@@ -3,6 +3,7 @@ from .select_batch import select_batches
 from .gradient_descent import gradient_descent
 from microkeras.operations.metrics.get_accuracy import get_accuracy
 from microkeras.losses.categorical_crossentropy import categorical_crossentropy
+from microkeras.losses.mean_squared_error import mean_squared_error
 from microkeras.operations.forward.forward import forward
 
 def minimize(self, model, X_train, Y_train, loss, batch_size, metrics):
@@ -30,7 +31,11 @@ def minimize(self, model, X_train, Y_train, loss, batch_size, metrics):
         if i % update_frequency == 0 or i == num_iterations - 1:
             # Calculate loss for the batch
             forward(model, X_batch)
-            loss_value = categorical_crossentropy(Y_batch, model.layers[-1].A)
+            if loss == 'categorical_crossentropy':
+                loss_value = categorical_crossentropy(Y_batch, model.layers[-1].A)
+            elif loss == 'mean_squared_error':
+                loss_value = mean_squared_error(Y_batch, model.layers[-1].A)
+            
             loss_list.append(loss_value)
 
             # Calculate accuracy for the batch if it's in metrics
