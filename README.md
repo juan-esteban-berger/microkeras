@@ -6,7 +6,7 @@ MicroKeras is a minimal implementation of a Keras-like deep-learning library, bu
 
 - Sequential model API
 - Dense (fully connected) layers
-- Various activation functions (ReLU, Sigmoid, Softmax)
+- Various activation functions (ReLU, Sigmoid, Softmax, Linear)
 - Loss functions (Mean Squared Error, Categorical Cross-Entropy)
 - Optimizers (Stochastic Gradient Descent)
 - Dataset loaders (MNIST, California Housing)
