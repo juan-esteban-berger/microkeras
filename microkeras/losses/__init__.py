@@ -1,4 +1,3 @@
 from .categorical_crossentropy import categorical_crossentropy
 from .mean_squared_error import mean_squared_error
 from .mean_squared_error_derivative import mean_squared_error_derivative
-
