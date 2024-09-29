@@ -16,6 +16,9 @@ def calculate_dZ_wrapper(model, i, Y, loss):
         elif (current_layer.activation == 'relu' and
               loss == 'mean_squared_error'):
             return calculate_dZ_relu_mean_squared_error(current_layer.A, Y, current_layer.Z)
+        elif (current_layer.activation == 'linear' and
+              loss == 'mean_squared_error'):
+            return calculate_dZ_linear_mean_squared_error(current_layer.A, Y, current_layer.Z)
     
     # General case
     next_layer = model.layers[i + 1]
