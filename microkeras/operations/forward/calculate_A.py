@@ -1,4 +1,4 @@
-from ...activations import sigmoid, softmax, relu
+from ...activations import sigmoid, softmax, relu, linear
 
 def calculate_A(Z, activation):
     if activation == 'sigmoid':
@@ -7,3 +7,5 @@ def calculate_A(Z, activation):
         return softmax(Z)
     elif activation == 'relu':
         return relu(Z)
+    elif activation == 'linear':
+        return linear(Z)
