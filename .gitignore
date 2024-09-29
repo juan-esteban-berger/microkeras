@@ -9,3 +9,6 @@
 # contextclipper files
 .contextclipperignore
 contextoutput.txt
+
+# Ignore specific test model file
+tests/test_models/*
