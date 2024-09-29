@@ -19,7 +19,7 @@ def model():
     return Sequential([
         Dense(64, activation='relu', input_shape=(8,)),
         Dense(32, activation='relu'),
-        Dense(1, activation='relu')
+        Dense(1, activation='linear')
     ])
 
 @pytest.fixture(scope="module")

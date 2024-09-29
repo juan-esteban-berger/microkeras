@@ -4,7 +4,7 @@ from microkeras.operations.backward.calculate_dZ_linear_mean_squared_error impor
     calculate_dZ_linear_mean_squared_error
 )
 
-def test_calculate_dZ_linear_mean_squared_error():
+def test_calculate_dZ_wrapper_relu_linear():
     print()
     print("Calculate dZ for Linear with mean squared error function test:")
     

@@ -5,6 +5,9 @@ from microkeras.operations.backward.calculate_dZ_softmax_categorical_crossentrop
 from microkeras.operations.backward.calculate_dZ_relu_mean_squared_error import (
     calculate_dZ_relu_mean_squared_error
 )
+from microkeras.operations.backward.calculate_dZ_linear_mean_squared_error import (
+    calculate_dZ_linear_mean_squared_error
+)
 
 def calculate_dZ_wrapper(model, i, Y, loss):
     current_layer = model.layers[i]
