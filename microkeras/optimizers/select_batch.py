@@ -11,8 +11,8 @@ def select_batches(X_train, Y_train, batch_size):
 
     Returns:
     tuple: (X_batch, Y_batch)
-        - X_batch (numpy.ndarray): The selected batch of input data.
-        - Y_batch (numpy.ndarray): The corresponding batch of labels.
+    X_batch (numpy.ndarray): The selected batch of input data.
+    Y_batch (numpy.ndarray): The corresponding batch of labels.
 
     This function handles both 1D and 2D label arrays (Y_train).
     """

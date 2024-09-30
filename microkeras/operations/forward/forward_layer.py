@@ -11,8 +11,8 @@ def forward_layer(layer, A_prev):
 
     Returns:
     tuple: (Z, A)
-        Z (numpy.ndarray): The linear combination output.
-        A (numpy.ndarray): The activation output.
+    Z (numpy.ndarray): The linear combination output.
+    A (numpy.ndarray): The activation output.
     """
     Z = calculate_Z(layer.W, A_prev, layer.b)
     A = calculate_A(Z, layer.activation)

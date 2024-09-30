@@ -37,7 +37,7 @@ def test_california_housing_end_to_end(california_housing_data, model, optimizer
     # Train the model
     history = model.fit(X_train,
                         y_train,
-                        batch_size=32,
+                        batch_size=16,
                         epochs=50)
 
     # Evaluate the model

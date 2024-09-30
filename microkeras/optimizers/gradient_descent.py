@@ -18,8 +18,8 @@ def gradient_descent(model, X_train, Y_train, loss, learning_rate):
 
     Returns:
     tuple: (accuracy, loss_value)
-        - accuracy (float): The model's accuracy on the training data.
-        - loss_value (float): The loss value for the current state of the model.
+    accuracy (float): The model's accuracy on the training data.
+    loss_value (float): The loss value for the current state of the model.
 
     This function performs forward propagation, backward propagation, and parameter updates.
     It also calculates and returns the accuracy and loss for the current state of the model.

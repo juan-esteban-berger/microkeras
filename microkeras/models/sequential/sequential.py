@@ -18,37 +18,67 @@ class Sequential:
     or through the .add() method.
 
     Attributes:
-    layers (list): List of layers in the model.
-
-    Methods:
-    add: Add a layer to the model.
-    build: Build the model by initializing all layers.
-    copy: Create a deep copy of the model.
-    compile: Configure the model for training.
-    fit: Train the model on data.
-    evaluate: Evaluate the model on test data.
-    predict: Generate predictions.
-    save: Save the model to a file.
-    load: Load a model from a file (class method).
+        layers (list): List of layers in the model.
     """
+
     def __init__(self, layers):
         """
         Initialize the Sequential model.
 
         Parameters:
-        layers (list): Initial list of layers to add to the model.
+            layers (list): Initial list of layers to add to the model.
         """
         initialize(self, layers)
 
     add = add
+    """
+    :no-index:
+    """
+
     build = build
+    """
+    :no-index:
+    """
+
     copy = copy
+    """
+    :no-index:
+    """
+
     compile = compile
+    """
+    :no-index:
+    """
+
     fit = fit
+    """
+    :no-index:
+    """
+
     evaluate = evaluate
+    """
+    :no-index:
+    """
+
     predict = predict
+    """
+    :no-index:
+    """
+
     save = save
+    """
+    :no-index:
+    """
 
     @classmethod
     def load(cls, filename):
+        """
+        Load a model from a file.
+
+        Parameters:
+            filename (str): Path to the file containing the saved model.
+
+        Returns:
+            Sequential: Loaded model instance.
+        """
         return load(cls, filename)
