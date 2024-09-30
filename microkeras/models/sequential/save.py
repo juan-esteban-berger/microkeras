@@ -2,6 +2,12 @@ import json
 import numpy as np
 
 def save(self, filename):
+    """
+    Save the Sequential model to a file.
+
+    Parameters:
+    filename (str): Path where the model should be saved.
+    """
     model_data = {
         'layers': []
     }

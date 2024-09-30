@@ -4,6 +4,20 @@ from microkeras.losses.mean_squared_error import mean_squared_error
 from microkeras.operations.metrics.get_accuracy import get_accuracy
 
 def evaluate(self, X_test, y_test):
+    """
+    Evaluate the model on the given test data.
+
+    Parameters:
+    X_test (numpy.ndarray): Test input data.
+    y_test (numpy.ndarray): True labels for the test data.
+
+    Returns:
+    float or tuple: If 'accuracy' is in metrics, returns (loss, accuracy),
+                    otherwise returns only the loss.
+
+    Raises:
+    ValueError: If the model hasn't been compiled.
+    """
     if not hasattr(self, 'loss'):
         raise ValueError("Model must be compiled before evaluation. Use model.compile() first.")
     

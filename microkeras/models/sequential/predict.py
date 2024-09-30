@@ -2,6 +2,15 @@ import numpy as np
 from microkeras.operations.forward.forward import forward
 
 def predict(self, X):
+    """
+    Generate output predictions for the input samples.
+
+    Parameters:
+    X (numpy.ndarray): Input data.
+
+    Returns:
+    numpy.ndarray: Predictions for the input data.
+    """
     # Transpose the input data
     X = X.T
     

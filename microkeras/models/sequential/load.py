@@ -2,6 +2,15 @@ import json
 import numpy as np
 
 def load(cls, filename):
+    """
+    Load a Sequential model from a file.
+
+    Parameters:
+    filename (str): Path to the file containing the saved model.
+
+    Returns:
+    Sequential: A new Sequential model instance loaded from the file.
+    """
     from microkeras.layers import Dense
 
     with open(filename, 'r') as f:
