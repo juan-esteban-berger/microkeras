@@ -10,6 +10,18 @@ from microkeras.operations.backward.calculate_dZ_linear_mean_squared_error impor
 )
 
 def calculate_dZ_wrapper(model, i, Y, loss):
+    """
+    Wrapper function to calculate dZ for the supported layer and loss combinations.
+
+    Parameters:
+    model (Sequential): The neural network model.
+    i (int): Index of the current layer.
+    Y (numpy.ndarray): True labels.
+    loss (str): Loss function used.
+
+    Returns:
+    numpy.ndarray: Gradient of Z for the specified layer.
+    """
     current_layer = model.layers[i]
     
     if (i == len(model.layers) - 1):

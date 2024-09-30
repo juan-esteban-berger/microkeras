@@ -9,6 +9,21 @@ from microkeras.operations.backward.calculate_db_wrapper import (
 )
 
 def backward_layer(model, layer_index, X, Y, A_prev, loss, m):
+    """
+    Perform backward propagation for a single layer in the model.
+
+    Parameters:
+    model (Sequential): The neural network model.
+    layer_index (int): Index of the current layer.
+    X (numpy.ndarray): Input data.
+    Y (numpy.ndarray): True labels.
+    A_prev (numpy.ndarray): Activation from the previous layer.
+    loss (str): Loss function used.
+    m (int): Number of training examples.
+
+    Returns:
+    tuple: (dZ, dW, db) gradients for the current layer.
+    """
     layer = model.layers[layer_index]
     
     dZ = calculate_dZ_wrapper(model, layer_index, Y, loss)
