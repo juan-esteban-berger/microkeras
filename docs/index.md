@@ -1,4 +1,4 @@
-# Welcome to MicroKeras
+# Getting Started
 
 MicroKeras is a lightweight neural network library.
 

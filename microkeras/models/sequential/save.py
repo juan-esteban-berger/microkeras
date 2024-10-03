@@ -5,8 +5,13 @@ def save(self, filename):
     """
     Save the Sequential model to a file.
 
-    Parameters:
-    filename (str): Path where the model should be saved.
+    Args:
+        filename (str): Path where the model should be saved.
+
+    Example:
+        ```python
+        model.save('my_model.json')
+        ```
     """
     model_data = {
         'layers': []

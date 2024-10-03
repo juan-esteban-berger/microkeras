@@ -5,11 +5,16 @@ def load(cls, filename):
     """
     Load a Sequential model from a file.
 
-    Parameters:
-    filename (str): Path to the file containing the saved model.
+    Args:
+        filename (str): Path to the file containing the saved model.
 
     Returns:
-    Sequential: A new Sequential model instance loaded from the file.
+        Sequential: A new Sequential model instance loaded from the file.
+
+    Example:
+        ```python
+        loaded_model = Sequential.load('my_model.json')
+        ```
     """
     from microkeras.layers import Dense
 

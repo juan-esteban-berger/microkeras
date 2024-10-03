@@ -4,13 +4,17 @@ def linear_derivative(Z):
     """
     Compute the derivative of the linear activation function.
 
-    The derivative of the linear function is always 1, so this function
-    returns an array of ones with the same shape as the input.
-
-    Parameters:
-    Z (numpy.ndarray): The input array.
+    Args:
+        Z (numpy.ndarray): The input array.
 
     Returns:
-    numpy.ndarray: An array of ones with the same shape as Z.
+        numpy.ndarray: An array of ones with the same shape as Z.
+
+    Example:
+        ```python
+        Z = np.array([[1, 2], [3, 4]])
+        dZ = linear_derivative(Z)
+        print(dZ)
+        ```
     """
     return np.ones_like(Z)

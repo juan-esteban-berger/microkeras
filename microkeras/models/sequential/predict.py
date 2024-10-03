@@ -5,11 +5,16 @@ def predict(self, X):
     """
     Generate output predictions for the input samples.
 
-    Parameters:
-    X (numpy.ndarray): Input data.
+    Args:
+        X (numpy.ndarray): Input data.
 
     Returns:
-    numpy.ndarray: Predictions for the input data.
+        numpy.ndarray: Predictions for the input data.
+
+    Example:
+        ```python
+        predictions = model.predict(X_test)
+        ```
     """
     # Transpose the input data
     X = X.T

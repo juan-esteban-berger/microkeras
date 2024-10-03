@@ -1,0 +1,1 @@
+::: microkeras.layers.dense.initialize

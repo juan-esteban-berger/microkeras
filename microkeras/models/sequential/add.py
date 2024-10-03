@@ -5,8 +5,15 @@ def add(self, layer):
     If the layer doesn't have an input_shape and there are existing layers,
     the input shape is inferred from the previous layer's units.
 
-    Parameters:
-    layer (Layer): The layer to be added to the model.
+    Args:
+        layer (Layer): The layer to be added to the model.
+
+    Example:
+        ```python
+        model = Sequential([])
+        model.add(Dense(64, activation='relu', input_shape=(784,)))
+        model.add(Dense(10, activation='softmax'))
+        ```
     """
     if self.layers and layer.input_shape is None:
         prev_layer = self.layers[-1]

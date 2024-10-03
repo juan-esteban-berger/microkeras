@@ -5,17 +5,22 @@ def fit(self, X_train, y_train, batch_size=32, epochs=1):
     """
     Train the model on the given data.
 
-    Parameters:
-    X_train (numpy.ndarray): Training input data.
-    y_train (numpy.ndarray): True labels for the training data.
-    batch_size (int): Number of samples per gradient update. Default is 32.
-    epochs (int): Number of epochs to train the model. Default is 1.
+    Args:
+        X_train (numpy.ndarray): Training input data.
+        y_train (numpy.ndarray): True labels for the training data.
+        batch_size (int): Number of samples per gradient update. Default is 32.
+        epochs (int): Number of epochs to train the model. Default is 1.
 
     Returns:
-    dict: Training history containing loss and metric values.
+        dict: Training history containing loss and metric values.
 
     Raises:
-    ValueError: If the model hasn't been compiled.
+        ValueError: If the model hasn't been compiled.
+
+    Example:
+        ```python
+        history = model.fit(X_train, y_train, batch_size=32, epochs=10)
+        ```
     """
     if not hasattr(self, 'optimizer') or not hasattr(self, 'loss') or not hasattr(self, 'metrics'):
         raise ValueError("Model must be compiled before training. Use model.compile() first.")

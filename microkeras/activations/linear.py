@@ -4,13 +4,17 @@ def linear(Z):
     """
     Compute the linear activation function.
 
-    The linear activation function is f(x) = x, so this function
-    simply returns the input array unchanged.
-
-    Parameters:
-    Z (numpy.ndarray): The input array.
+    Args:
+        Z (numpy.ndarray): The input array.
 
     Returns:
-    numpy.ndarray: The input array Z, unchanged.
+        numpy.ndarray: The input array Z, unchanged.
+
+    Example:
+        ```python
+        Z = np.array([[1, 2], [3, 4]])
+        A = linear(Z)
+        print(A)
+        ```
     """
     return Z

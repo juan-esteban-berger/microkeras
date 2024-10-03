@@ -7,7 +7,7 @@ def evaluate(self, X_test, y_test):
     """
     Evaluate the model on the given test data.
 
-    Parameters:
+    Args:
         X_test (numpy.ndarray): Test input data.
         y_test (numpy.ndarray): True labels for the test data.
 
@@ -18,6 +18,12 @@ def evaluate(self, X_test, y_test):
 
     Raises:
         ValueError: If the model hasn't been compiled.
+
+    Example:
+        ```python
+        loss, accuracy = model.evaluate(X_test, y_test)
+        print(f"Test Loss: {loss}, Test Accuracy: {accuracy}")
+        ```
     """
     if not hasattr(self, 'loss'):
         raise ValueError("Model must be compiled before evaluation. Use model.compile() first.")
