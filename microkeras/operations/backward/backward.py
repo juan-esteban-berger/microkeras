@@ -4,13 +4,19 @@ def backward(model, X, Y, loss):
     """
     Perform backward propagation through the entire model.
 
-    Parameters:
-    model (Sequential): The neural network model.
-    X (numpy.ndarray): Input data.
-    Y (numpy.ndarray): True labels.
-    loss (str): Loss function used.
+    Args:
+        model (Sequential): The neural network model.
+        X (numpy.ndarray): Input data.
+        Y (numpy.ndarray): True labels.
+        loss (str): Loss function used.
 
-    This function updates the gradients (dZ, dW, db) for all layers in the model.
+    Example:
+        ```python
+        backward(model, X_train, Y_train, 'categorical_crossentropy')
+        ```
+
+    Note:
+        This function updates the gradients (dZ, dW, db) for all layers in the model.
     """
     m = X.shape[1]  # number of training examples
     n_layers = len(model.layers)

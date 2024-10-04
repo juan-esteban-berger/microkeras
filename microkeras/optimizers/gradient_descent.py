@@ -9,20 +9,27 @@ def gradient_descent(model, X_train, Y_train, loss, learning_rate):
     """
     Perform one step of gradient descent on the model.
 
-    Parameters:
-    model (Sequential): The neural network model.
-    X_train (numpy.ndarray): Input training data.
-    Y_train (numpy.ndarray): True labels for training data.
-    loss (str): The loss function to use.
-    learning_rate (float): The learning rate for parameter updates.
+    Args:
+        model (Sequential): The neural network model.
+        X_train (numpy.ndarray): Input training data.
+        Y_train (numpy.ndarray): True labels for training data.
+        loss (str): The loss function to use.
+        learning_rate (float): The learning rate for parameter updates.
 
     Returns:
-    tuple: (accuracy, loss_value)
-    accuracy (float): The model's accuracy on the training data.
-    loss_value (float): The loss value for the current state of the model.
+        tuple: (accuracy, loss_value)
+            accuracy (float): The model's accuracy on the training data.
+            loss_value (float): The loss value for the current state of the model.
 
-    This function performs forward propagation, backward propagation, and parameter updates.
-    It also calculates and returns the accuracy and loss for the current state of the model.
+    Example:
+        ```python
+        acc, loss = gradient_descent(model, X_batch, Y_batch, 'categorical_crossentropy', 0.01)
+        print(f"Accuracy: {acc}, Loss: {loss}")
+        ```
+
+    Note:
+        This function performs forward propagation, backward propagation, and parameter updates.
+        It also calculates and returns the accuracy and loss for the current state of the model.
     """
     forward(model, X_train)
     backward(model, X_train, Y_train, loss)

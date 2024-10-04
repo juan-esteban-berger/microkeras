@@ -6,15 +6,26 @@ def forward(nn, X):
     """
     Perform forward propagation through the entire neural network.
 
-    Parameters:
-    nn (Sequential): The neural network model.
-    X (numpy.ndarray): The input data.
+    Args:
+        nn (Sequential): The neural network model.
+        X (numpy.ndarray): The input data.
 
     Returns:
-    numpy.ndarray: The output of the last layer (final predictions).
+        numpy.ndarray: The output of the last layer (final predictions).
 
-    Side effects:
-    - Updates the Z and A attributes of each layer in the network.
+    Example:
+        ```python
+        model = Sequential([
+            Dense(64, activation='relu', input_shape=(128,)),
+            Dense(10, activation='softmax')
+        ])
+        X = np.random.randn(128, 32)
+        output = forward(model, X)
+        print(output.shape)
+        ```
+
+    Note:
+        This function updates the Z and A attributes of each layer in the network.
     """
     A = X
     for layer in nn.layers:

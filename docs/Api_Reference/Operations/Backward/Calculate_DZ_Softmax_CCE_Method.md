@@ -1,0 +1,1 @@
+::: microkeras.operations.backward.calculate_dZ_softmax_categorical_crossentropy

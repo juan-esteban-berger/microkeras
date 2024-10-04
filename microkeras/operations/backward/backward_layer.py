@@ -12,17 +12,23 @@ def backward_layer(model, layer_index, X, Y, A_prev, loss, m):
     """
     Perform backward propagation for a single layer in the model.
 
-    Parameters:
-    model (Sequential): The neural network model.
-    layer_index (int): Index of the current layer.
-    X (numpy.ndarray): Input data.
-    Y (numpy.ndarray): True labels.
-    A_prev (numpy.ndarray): Activation from the previous layer.
-    loss (str): Loss function used.
-    m (int): Number of training examples.
+    Args:
+        model (Sequential): The neural network model.
+        layer_index (int): Index of the current layer.
+        X (numpy.ndarray): Input data.
+        Y (numpy.ndarray): True labels.
+        A_prev (numpy.ndarray): Activation from the previous layer.
+        loss (str): Loss function used.
+        m (int): Number of training examples.
 
     Returns:
-    tuple: (dZ, dW, db) gradients for the current layer.
+        tuple: (dZ, dW, db) gradients for the current layer.
+
+    Example:
+        ```python
+        dZ, dW, db = backward_layer(model, 1, X, Y, A_prev, 'categorical_crossentropy', 32)
+        print(dZ.shape, dW.shape, db.shape)
+        ```
     """
     layer = model.layers[layer_index]
     

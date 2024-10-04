@@ -5,14 +5,20 @@ def calculate_dZ(W_next, dZ_next, Z, activation):
     """
     Calculate dZ for hidden layers.
 
-    Parameters:
-    W_next (numpy.ndarray): Weights of the next layer.
-    dZ_next (numpy.ndarray): dZ of the next layer.
-    Z (numpy.ndarray): Linear output of the current layer.
-    activation (str): Activation function of the current layer.
+    Args:
+        W_next (numpy.ndarray): Weights of the next layer.
+        dZ_next (numpy.ndarray): dZ of the next layer.
+        Z (numpy.ndarray): Linear output of the current layer.
+        activation (str): Activation function of the current layer.
 
     Returns:
-    numpy.ndarray: Gradient of Z.
+        numpy.ndarray: Gradient of Z.
+
+    Example:
+        ```python
+        dZ = calculate_dZ(W_next, dZ_next, Z, 'relu')
+        print(dZ.shape)
+        ```
     """
     activation_derivatives = {
         'sigmoid': sigmoid_derivative,

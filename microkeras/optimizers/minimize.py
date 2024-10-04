@@ -10,18 +10,24 @@ def minimize(self, model, X_train, Y_train, loss, batch_size, metrics):
     """
     Minimize the loss function using mini-batch gradient descent.
 
-    Parameters:
-    self: The optimizer instance.
-    model (Sequential): The neural network model.
-    X_train (numpy.ndarray): Input training data.
-    Y_train (numpy.ndarray): True labels for training data.
-    loss (str): The loss function to use.
-    batch_size (int): The size of each mini-batch.
-    metrics (list): List of metrics to compute during training.
+    Args:
+        model (Sequential): The neural network model.
+        X_train (numpy.ndarray): Input training data.
+        Y_train (numpy.ndarray): True labels for training data.
+        loss (str): The loss function to use.
+        batch_size (int): The size of each mini-batch.
+        metrics (list): List of metrics to compute during training.
 
-    This function performs mini-batch gradient descent, updating the model parameters
-    to minimize the loss function. It uses a progress bar to show training progress
-    and computes specified metrics.
+    Example:
+        ```python
+        optimizer = SGD(learning_rate=0.01)
+        optimizer.minimize(model, X_train, Y_train, 'categorical_crossentropy', 32, ['accuracy'])
+        ```
+
+    Note:
+        This function performs mini-batch gradient descent, updating the model parameters
+        to minimize the loss function. It uses a progress bar to show training progress
+        and computes specified metrics.
     """
     # Number of training examples
     m = X_train.shape[1]

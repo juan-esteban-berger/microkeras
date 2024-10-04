@@ -4,11 +4,17 @@ def calculate_db(dZ, m):
     """
     Calculate the gradient of the bias.
 
-    Parameters:
-    dZ (numpy.ndarray): Gradient of the cost with respect to the linear output.
-    m (int): Number of training examples.
+    Args:
+        dZ (numpy.ndarray): Gradient of the cost with respect to the linear output.
+        m (int): Number of training examples.
 
     Returns:
-    numpy.ndarray: Gradient of the bias.
+        numpy.ndarray: Gradient of the bias.
+
+    Example:
+        ```python
+        db = calculate_db(dZ, 32)
+        print(db.shape)
+        ```
     """
     return (1 / m) * np.sum(dZ, axis=1, keepdims=True)
