@@ -6,9 +6,14 @@
 # Ignore all .egg-info directories
 *.egg-info/
 
-# contextclipper files
-.contextclipperignore
-contextoutput.txt
-
 # Ignore specific test model file
 tests/test_models/*
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Build and Dist directories
+build/
+dist/

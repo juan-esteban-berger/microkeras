@@ -165,7 +165,7 @@ plt.show()
 
 Output:
 
-![Model Accuracy and Loss](mnist_img1.png)
+![Model Accuracy and Loss](https://github.com/juan-esteban-berger/microkeras/blob/main/mnist_img1.png)
 
 ### Evaluating the Model
 
@@ -213,7 +213,7 @@ Actual labels:
 [8 4 8 7 7]
 ```
 
-![Predictions](mnist_img2.png)
+![Predictions](https://github.com/juan-esteban-berger/microkeras/blob/main/mnist_img2.png)
 
 ### Saving and Loading the Model
 
