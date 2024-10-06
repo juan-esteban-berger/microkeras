@@ -50,7 +50,7 @@ We'll compile the model using Stochastic Gradient Descent (SGD) as the optimizer
 optimizer = SGD(learning_rate=0.01)
 model.compile(optimizer=optimizer,
               loss='mean_squared_error',
-              metrics=[])  # Empty list for metrics as it's a regression problem
+              metrics=[])
 ```
 
 ## Training the Model
@@ -64,6 +64,24 @@ history = model.fit(X_train,
                     epochs=100)
 ```
 
+Output:
+    
+```
+Epoch 1/100
+Batch 1032/1032 - Loss: 1.1183: : 1088it [00:04, 220.54it/s]
+Epoch 2/100
+Batch 1032/1032 - Loss: 0.6722: : 1088it [00:05, 183.74it/s]
+Epoch 3/100
+Batch 1032/1032 - Loss: 1.0607: : 1088it [00:02, 417.53it/s]
+Epoch 4/100
+Batch 1032/1032 - Loss: 0.6741: : 1088it [00:02, 402.56it/s]
+Epoch 5/100
+Batch 1032/1032 - Loss: 0.5054: : 1088it [00:02, 414.89it/s]
+...
+Epoch 100/100
+Batch 1032/1032 - Loss: 0.2898: : 1088it [00:01, 903.47it/s]
+```
+
 ## Evaluating the Model
 
 After training, we can evaluate the model on the test set:
@@ -71,6 +89,12 @@ After training, we can evaluate the model on the test set:
 ```python
 test_mse = model.evaluate(X_test, y_test)
 print(f"Test MSE: {test_mse:.4f}")
+```
+
+Output:
+
+```
+Test MSE: 0.3325
 ```
 
 ## Making Predictions
@@ -83,6 +107,15 @@ print("Predictions for the first 5 test samples:")
 print(predictions.flatten())
 print("Actual values:")
 print(y_test[:5].flatten())
+```
+
+Output:
+
+```
+Predictions for the first 5 test samples:
+[0.50417322 1.0510164  4.579818   2.80260055 3.1033866 ]
+Actual values:
+[0.477   0.458   5.00001 2.186   2.78   ]
 ```
 
 ## Saving and Loading the Model
@@ -106,6 +139,12 @@ loaded_test_mse = loaded_model.evaluate(X_test, y_test)
 print(f"Loaded model test MSE: {loaded_test_mse:.4f}")
 ```
 
+Output:
+
+```
+Loaded model test MSE: 0.3325
+```
+
 ## Viewing Training History
 
 Finally, let's print out the training history:
@@ -115,6 +154,20 @@ print("\nTraining History:")
 print("Epoch\tLoss")
 for epoch, loss in enumerate(history['loss'], 1):
     print(f"{epoch}\t{loss:.4f}")
+```
+
+Output:
+
+```
+Training History:
+Epoch	Loss
+1	2.5730
+2	0.6453
+3	1.6912
+4	0.5023
+5	0.4681
+...
+100	0.2876
 ```
 
 This example demonstrates how to use MicroKeras for a regression task, including model creation, training, evaluation, prediction, and model saving/loading.
