@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="microkeras",
-    version="0.1.1",
+    version="0.1.2",
     packages=find_packages(),
     long_description=long_description,
     long_description_content_type='text/markdown',
