@@ -1,5 +1,9 @@
 # California Housing Regression Example
 
+<a target="_blank" href="https://colab.research.google.com/github/juan-esteban-berger/microkeras/blob/main/examples/california_housing_regression.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 This example demonstrates how to use MicroKeras for a regression task using the California Housing dataset. We'll build a model to predict housing prices based on various features.
 
 ## Importing Dependencies
