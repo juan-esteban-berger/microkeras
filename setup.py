@@ -7,8 +7,11 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="microkeras",
-    version="0.1.3",
+    version="0.1.4",
     packages=find_packages(),
+    package_data={
+        'microkeras': ['datasets/*.parquet'],
+    },
     long_description=long_description,
     long_description_content_type='text/markdown',
     install_requires=[
