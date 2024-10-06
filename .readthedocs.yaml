@@ -1,4 +1,4 @@
-version: 0.1.0
+version: 2
 
 build:
   os: ubuntu-22.04
@@ -11,5 +11,5 @@ python:
     - method: pip
       path: .
 
-sphinx:
-  configuration: docs/source/conf.py
+mkdocs:
+  configuration: mkdocs.yml
