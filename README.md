@@ -73,8 +73,6 @@ model = Sequential([
     Dense(200, activation='sigmoid'),
     Dense(10, activation='softmax')
 ])
-
-model.summary()
 ```
 
 This model consists of two hidden layers with sigmoid activation and an output layer with softmax activation, suitable for multi-class classification.
@@ -97,9 +95,8 @@ Let's train the model for 10 epochs with a batch size of 32:
 ```python
 history = model.fit(X_train,
                     y_train,
-                    batch_size=32,
-                    epochs=10,
-                    validation_split=0.1)
+                    batch_size=16,
+                    epochs=10)
 
 # Plot training history
 import matplotlib.pyplot as plt
