@@ -107,21 +107,6 @@ To ensure the library is functioning correctly, you can run the included tests:
    pytest -v -s tests/test_sigmoid.py
    ```
 
-## Project Structure
+## License
 
-```
-microkeras/
-├── examples/
-├── microkeras/
-│   ├── activations/
-│   ├── datasets/
-│   ├── layers/
-│   ├── losses/
-│   ├── models/
-│   ├── operations/
-│   └── optimizers/
-├── tests/
-├── README.md
-├── requirements.txt
-└── setup.py
-```
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

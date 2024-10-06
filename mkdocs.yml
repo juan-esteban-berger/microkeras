@@ -58,8 +58,8 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/yourusername/microkeras
+      link: https://github.com/juan-esteban-berger/microkeras
     - icon: fontawesome/brands/python
       link: https://pypi.org/project/microkeras/
 
-copyright: Copyright &copy; 2023 Your Name
+copyright: Copyright &copy; 2024 Juan Esteban Berger
