@@ -1,5 +1,9 @@
 # Getting Started with MicroKeras
 
+<a target="_blank" href="https://colab.research.google.com/github/juan-esteban-berger/microkeras/blob/main/examples/mnist_classification.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 MicroKeras is a minimal implementation of the Sequential Class from the Keras deep-learning library, built from scratch using Python and NumPy. It provides a simple and intuitive API for building, training, and evaluating neural networks inspired by the Keras API.
 
 ## Installation

@@ -1,5 +1,9 @@
 # MNIST Classification Example
 
+<a target="_blank" href="https://colab.research.google.com/github/juan-esteban-berger/microkeras/blob/main/examples/mnist_classification.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 Let's walk through a complete example using MicroKeras to classify handwritten digits from the MNIST dataset. This example will demonstrate how to load data, create a model, train it, make predictions, and save/load the model.
 
 ### Importing Dependencies
