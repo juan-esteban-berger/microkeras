@@ -51,8 +51,8 @@ Next, we'll load the MNIST dataset and preprocess it:
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
 # Reshape and normalize the input data
-X_train = X_train.reshape(X_train.shape[0], -1) / 255.0
-X_test = X_test.reshape(X_test.shape[0], -1) / 255.0
+X_train = X_train.reshape(X_train.shape[0], -1)
+X_test = X_test.reshape(X_test.shape[0], -1)
 
 # One-hot encode the labels
 y_train = np.eye(10)[y_train]
@@ -132,6 +132,10 @@ Epoch 10/10
 Batch 3500/3500 - Loss: 0.3842, Acc: 0.9961: : 3712it [00:21, 176.15it/s]
 ```
 
+### Plotting Training History
+
+We can plot the training history using Matplotlib:
+
 ```python
 # Plot training history
 import matplotlib.pyplot as plt
@@ -139,7 +143,6 @@ import matplotlib.pyplot as plt
 plt.figure(figsize=(12, 4))
 plt.subplot(1, 2, 1)
 plt.plot(history['accuracy'], label='Training Accuracy')
-plt.plot(history['val_accuracy'], label='Validation Accuracy')
 plt.title('Model Accuracy')
 plt.ylabel('Accuracy')
 plt.xlabel('Epoch')
@@ -147,7 +150,6 @@ plt.legend()
 
 plt.subplot(1, 2, 2)
 plt.plot(history['loss'], label='Training Loss')
-plt.plot(history['val_loss'], label='Validation Loss')
 plt.title('Model Loss')
 plt.ylabel('Loss')
 plt.xlabel('Epoch')
