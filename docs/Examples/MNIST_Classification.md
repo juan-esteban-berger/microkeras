@@ -1,4 +1,4 @@
-## MNIST Classification Example
+# MNIST Classification Example
 
 Let's walk through a complete example using MicroKeras to classify handwritten digits from the MNIST dataset. This example will demonstrate how to load data, create a model, train it, make predictions, and save/load the model.
 
